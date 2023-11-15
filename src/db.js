@@ -3,11 +3,15 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, DB_URL
+  DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_URL_INT, DB_URL_EXT
 } = process.env;
 
-//const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`, {
-const sequelize = new Sequelize(`${DB_URL}`, {
+//Connect to local db:
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+//Internal connection inside Render.com:
+//const sequelize = new Sequelize(`${DB_URL_INT}`, {
+//External connection to Render.com db. Failed:
+//const sequelize = new Sequelize(`${DB_URL_EXT}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });

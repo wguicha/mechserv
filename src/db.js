@@ -7,9 +7,9 @@ const {
 } = process.env;
 
 //Connect to local db:
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
+//const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, {
 //Internal connection inside Render.com:
-//const sequelize = new Sequelize(`${DB_URL_INT}`, {
+const sequelize = new Sequelize(`${DB_URL_INT}`, {
 //External connection to Render.com db. Failed:
 //const sequelize = new Sequelize(`${DB_URL_EXT}`, {
   logging: false, // set to console.log to see the raw SQL queries

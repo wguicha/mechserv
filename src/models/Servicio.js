@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('user', {
-    uuid: {
+  sequelize.define('servicio', {
+    id_servicio: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
@@ -11,23 +11,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    vehiculo: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    telefono: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    imagen: {
+    price: {
       type: DataTypes.STRING,
       allowNull: false,
     }

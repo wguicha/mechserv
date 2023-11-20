@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV1,
         primaryKey: true
       },
+/*
       id_carrito: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV1,
@@ -15,7 +16,7 @@ module.exports = (sequelize) => {
             key: 'id_carrito',
           }
       },
-      
+*/      
       date: {
         type: DataTypes.DATE,
         allowNull: false,

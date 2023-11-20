@@ -1,0 +1,206 @@
+﻿[
+{
+    "category": "Frenos",
+    "name": "Cambio Pastillas Delanteras",
+    "description": "Incluye el desarmado de las pinzas de las llantas delanteras y el cambio de las pastillas. No incluye la compra de las pastillas. ",
+    "price": 20
+},
+{
+    "category": "Frenos",
+    "name": "Rectificación de Discos",
+    "description": "Incluye el desarmado para extraer los discos y su rectificación con torno. ",
+    "price": 20
+},
+{
+    "category": "Frenos",
+    "name": "Cambio Pastillas Traseras",
+    "description": "Incluye el desarmado de las pinzas de las llantas traseras y el cambio de las pastillas. No incluye la compra de las pastillas. ",
+    "price": 21.25
+},
+{
+    "category": "Frenos",
+    "name": "Cambio Total de Pastillas",
+    "description": "Incluye el desarmado de las pinzas de todas las llantas y el cambio de las pastillas. No incluye la compra de las pastillas. ",
+    "price": 38.75
+},
+{
+    "category": "Frenos",
+    "name": "Depuracion y revision sistema",
+    "description": "Incluye la verificación del frenado en las cuatro ruedas, estado del freno de mano y verificación y llenado del liquido de frenos. ",
+    "price": 18.75
+},
+{
+    "category": "Llantas",
+    "name": "Cambio de llantas",
+    "description": "Incluye la extracción de la llantas usadas en cada rin, montaje de la nuevas llantas , llenado y montaje de nuevo en el vehículo. No incluye las llantas.",
+    "price": 15
+},
+{
+    "category": "Llantas",
+    "name": "Rotación de llantas",
+    "description": "Incluye el desmontaje de las llantas y su posterior reubicación de acuerdo a la conveniencia del cliente. ",
+    "price": 7.5
+},
+{
+    "category": "Llantas",
+    "name": "Alineación",
+    "description": "Incluye la alineación de las ruedas, tanto delanteras como traseras así como su reporte de alineación. ",
+    "price": 25
+},
+{
+    "category": "Llantas",
+    "name": "Balanceo",
+    "description": "Incluye el desmontaje de las llantas, su balanceo y posterior montaje. ",
+    "price": 20
+},
+{
+    "category": "Llantas",
+    "name": "Despinchado",
+    "description": "Incluye el desmontaje, revisión, parcheo, llenado y montaje de la rueda afectada. ",
+    "price": 5
+},
+{
+    "category": "Suspensión",
+    "name": "Cambio de Amortiguadores Delanteros",
+    "description": "Incluye el desarmado de la suspensión delantera, extracción de los amortiguadores y colocación de los nuevos. No incluye los amortiguadores. ",
+    "price": 40
+},
+{
+    "category": "Suspensión",
+    "name": "Cambio de Amortiguadores Traseros",
+    "description": "Incluye el desarmado de la suspensión trasera, extracción de los amortiguadores y colocación de los nuevos. No incluye los amortiguadores. ",
+    "price": 50
+},
+{
+    "category": "Suspensión",
+    "name": "Cambio Total de Amortiguadores",
+    "description": "Incluye el desarmado de la suspensión delantera y trasera, extracción de los amortiguadores y colocación de los nuevos. No incluye los amortiguadores. ",
+    "price": 82.5
+},
+{
+    "category": "Suspensión",
+    "name": "Cambio de Piezas de Suspension",
+    "description": "Incluye el desarmado de la suspensión correspondiente, cambio de la pieza y armado posterior. No incluye la compra de la pieza a cambiar. ",
+    "price": 75
+},
+{
+    "category": "Motor",
+    "name": "Cambio de Aceite de Motor",
+    "description": "Incluye el decantado y disposición adecuada del aceite usado, cambio del filtro de aceite, llenado con el nuevo aceite. No incluye la compra del aceite ni del filtro. ",
+    "price": 13.75
+},
+{
+    "category": "Motor",
+    "name": "Cambio Filtro Aceite de Motor",
+    "description": "Incluye el cambio del filtro de aceite. No incluye la compra del filtro.",
+    "price": 6.25
+},
+{
+    "category": "Motor",
+    "name": "Cambio Aceite de Transmision",
+    "description": "Incluye el decantado y disposición adecuada del aceite usado, cambio del filtro de aceite, llenado con el nuevo aceite. No incluye la compra del aceite ni del filtro. ",
+    "price": 15
+},
+{
+    "category": "Motor",
+    "name": "Cambio Filtro Aire Acondicionado",
+    "description": "Incluye el desarmado, extracción y disposición del filtro usado, así como la instalación del nuevo. No incluye la compra del filtro. ",
+    "price": 7.5
+},
+{
+    "category": "Motor",
+    "name": "Revision y depuracion del sistema de enfriamiento",
+    "description": "Incluye el vaciado del sistema de refrigeración, revisión de la presión, detección de fugas y llenado con liquido refrigerante. No incluye el liquido.",
+    "price": 47.5
+},
+{
+    "category": "Motor",
+    "name": "Sincronizacion Electronica",
+    "description": "Incluye el escaneado, revisión y limpieza del sistema de inyección, verificación del sistema de distribución y bujías, cambio de los repuestos de ser necesario. No incluye la compra de repuesto que halla a lugar. ",
+    "price": 80
+},
+{
+    "category": "Motor",
+    "name": "Cambio de Bujias",
+    "description": "Incluye el desarmado del sistema de distribución, desarmado y cambio de bujías. No incluye el cambio de las bujías. ",
+    "price": 35
+},
+{
+    "category": "Motor",
+    "name": "Escaneo de fallos",
+    "description": "Incluye el escaneo del vehículo con herramienta especializada y reporte de fallos que tenga el vehículo. ",
+    "price": 17.5
+},
+{
+    "category": "Motor",
+    "name": "Cambio sensores",
+    "description": "Incluye el desarmado, cambio y armado de sensores de ABS, de posición de cigüeñal. No incluye la compra de repuestos que de a lugar. ",
+    "price": 21.25
+},
+{
+    "category": "Motor",
+    "name": "Reparación Radiador",
+    "description": "Incluye el desarmado y extracción del radiador, reparación, soldadura y montaje del radiador. ",
+    "price": 30
+},
+{
+    "category": "Motor",
+    "name": "Mantenimiento de caja manual",
+    "description": "Incluye el desarmado, extracción, revisión, engrase y cambio de piezas que halla a lugar. No incluye las piezas que sea necesario cambiar.",
+    "price": 70
+},
+{
+    "category": "Motor",
+    "name": "Mantenimiento de caja automatica",
+    "description": "Incluye el desarmado, extracción, revisión, engrase y cambio de piezas que halla a lugar. No incluye las piezas que sea necesario cambiar.",
+    "price": 97.5
+},
+{
+    "category": "Motor",
+    "name": "Revision de Sistema de Dirección Asistida",
+    "description": "Incluye el desarmado, extracción, revisión, engrase y cambio de piezas que halla a lugar. No incluye las piezas que sea necesario cambiar.",
+    "price": 60
+},
+{
+    "category": "Motor",
+    "name": "Mantenimiento del Sistema de Aire Acondicionado",
+    "description": "Incluye el vaciado del sistema de aire acondicionado, revisión de la presión, detección de fugas y llenado con liquido. No incluye el liquido.",
+    "price": 42.5
+},
+{
+    "category": "Motor",
+    "name": "Revision General Previaje",
+    "description": "Incluye revisión general de frenos, sistema de refrigeración, suspensión, alineación, balanceo, batería y niveles de lubricante. No incluye el costo del cambio de piezas a que halla lugar ni líquidos que sea necesario cambiar. ",
+    "price": 120
+},
+{
+    "category": "Motor",
+    "name": "Cambio Bateria",
+    "description": "Incluye el desarmado, desconexión, colocación y chequeo de la nueva batería. No incluye la compra de nueva batería. ",
+    "price": 30
+},
+{
+    "category": "Carroceria",
+    "name": "Lavado Superficial",
+    "description": "Incluye el enjuagado, enjabonado y secado de la carrocería así como el aspirado del interior. ",
+    "price": 7.5
+},
+{
+    "category": "Carroceria",
+    "name": "Lavado General",
+    "description": "Incluye el enjuagado, enjabonado y secado de la carrocería y de la parte inferior del vehículo, limpieza del motor, así como el aspirado del interior. ",
+    "price": 13.75
+},
+{
+    "category": "Carroceria",
+    "name": "Encerado y Brillado",
+    "description": "Incluye el encerado y brillado de la carrocería del vehículo, este proceso debe ser posterior al lavado general. ",
+    "price": 8.75
+},
+{
+    "category": "Carroceria",
+    "name": "Revision Sistema Limpiaparabrisas",
+    "description": "Incluye depuración y verificación del funcionamiento del sistema, cambio de plumillas, revisión de la bomba y cambio de plumillas. No incluye la compra de plumillas nuevas. ",
+    "price": 20
+}
+]

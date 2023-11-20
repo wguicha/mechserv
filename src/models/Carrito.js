@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV1,
         primaryKey: true
       },
+/*
       uuid: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV1,
@@ -15,6 +16,7 @@ module.exports = (sequelize) => {
             key: 'uuid',
           }
       }, 
+*/
       date: {
         type: DataTypes.DATE,
         allowNull: false,

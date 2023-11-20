@@ -15,6 +15,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+/*    
     id_servicio: { 
       type: DataTypes.UUID,
       allowNull: false,
@@ -23,9 +24,7 @@ module.exports = (sequelize) => {
         key: 'id_servicio',
       },
     },
+*/
   });
-
-  
-
   }
 

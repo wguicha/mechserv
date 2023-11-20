@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
     },
+/*
     id_carrito: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV1,
@@ -31,7 +32,7 @@ module.exports = (sequelize) => {
             key: 'id_turno',
           }
       },
-  
+*/
    
     subTotal: {
       type: DataTypes.DECIMAL(10, 2), 

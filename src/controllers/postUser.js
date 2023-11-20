@@ -16,7 +16,8 @@ const verifyToken = (req, res, next) => {
 }
 
 const postUser = async (req, res) => {
-    const {uuid, name, email, password ,vehiculo,telefono,imagen} = req.body;
+    console.log(req.body)
+    const {tipo_usuario,uuid, name, email, password ,vehiculo,telefono,imagen} = req.body;
     console.log(email, password);
     try {
         if (email && password) {
@@ -25,6 +26,7 @@ const postUser = async (req, res) => {
 
             // Crear un nuevo usuario con la contraseña hasheada
             const newUser = await User.create({
+                tusuario: tipo_usuario,
                 id:uuid,
                 name:name,
                 email:email,

@@ -20,7 +20,15 @@ const login = async (req, res) => {
                 return res.status(403).json({ message: 'Contraseña incorrecta' });
             }
 
-            return res.status(200).json({ access: true})
+            return res.status(200).json({
+                newUser: {
+                    id:found.uuid,
+                    name: found.name,
+                    email: found.email,
+                    
+                },
+                token: 'token'
+            }) // devolver un usuario como en el postUser
 
         } else {
             return res.status(400).json({message: 'Faltan datos'})

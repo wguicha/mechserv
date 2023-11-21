@@ -17,7 +17,7 @@ const verifyToken = (req, res, next) => {
 
 const postUser = async (req, res) => {
     console.log(req.body)
-    const {tipo_usuario,uuid, name, email, password ,vehiculo,telefono,imagen} = req.body;
+    const {tipo_usuario,uuid, name, email, password ,telefono,imagen} = req.body;
     console.log(email, password);
     try {
         if (email && password) {
@@ -31,7 +31,7 @@ const postUser = async (req, res) => {
                 name:name,
                 email:email,
                 password: hashedPassword,
-                vehiculo:vehiculo,
+               
                 telefono:telefono,
                 imagen: imagen
             });

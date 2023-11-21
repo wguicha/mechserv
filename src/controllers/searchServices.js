@@ -4,15 +4,15 @@ const { Op } = require("sequelize");
 const searchServices = async  (req, res) => {
     try{
         let filteredServices = []
-        const category = req.query.category;
+        const category = req.query.category && req.query.category.toLowerCase();
         const keyWord = req.query.keyWord;
 
-        if( keyWord && category) {
+        if( !(!keyWord) && !(!category)) {
             filteredServices = await Servicio.findAll({
                 where : {
                     [Op.and]: [
-                        {categoria: category},
-                        {[Op.or]:[{description : {[Op.like] : `%${keyWord}%`} },
+                        {categoria: category[0].toUpperCase() + category.slice(1)},
+                        {[Op.or]:[{description : {[Op.iLike] : `%${keyWord}%`} },
                                  {name : {[Op.like] : `%${keyWord}%`} }
                                 ]}
                     ]
@@ -22,7 +22,6 @@ const searchServices = async  (req, res) => {
         }
 
         if( !keyWord && category) {
-
             filteredServices = await Servicio.findAll({
                 where : {
                     categoria: category
@@ -34,7 +33,7 @@ const searchServices = async  (req, res) => {
         if( keyWord && !category) {
 
             filteredServices = await Servicio.findAll({
-                where : {[Op.or]:[{description : {[Op.like] : `%${keyWord}%`} },
+                where : {[Op.or]:[{description : {[Op.iLike] : `%${keyWord}%`} },
                 {name : {[Op.like] : `%${keyWord}%`} }
                ]}
             })

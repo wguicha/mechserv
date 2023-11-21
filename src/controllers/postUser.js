@@ -26,7 +26,7 @@ const postUser = async (req, res) => {
 
             // Crear un nuevo usuario con la contraseña hasheada
             const newUser = await User.create({
-                tusuario: tipo_usuario,
+                tipo_usuario: tipo_usuario,
                 id:uuid,
                 name:name,
                 email:email,

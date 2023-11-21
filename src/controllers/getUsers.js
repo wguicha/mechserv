@@ -1,8 +1,4 @@
-require('dotenv').config();
-
 const { User } = require('../db');
-
-
 
 const getAllUsers = async (req, res) => {
     try {

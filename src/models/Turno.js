@@ -19,8 +19,8 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-/*    
-    id_servicio: { 
+/*
+    id_servicio: {
       type: DataTypes.UUID,
       allowNull: false,
       references: {

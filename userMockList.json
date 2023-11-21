@@ -2,7 +2,17 @@
 {
     "tipo_usuario": "client",
     "name": "William Guicha",
-    "vehiculo": "N/A",
+    "vehiculo": [
+        {
+        "marca": "Nissan",
+        "modelo": "Sentra",
+        "date": "2020-10-31T09:00:00.594Z"
+        },
+        {
+        "marca": "Dodge",
+        "modelo": "Journey",
+        "date": "2018-05-01T09:00:00.594Z"
+        }],
     "email": "williamalberto1@hotmail.com",
     "password": "client123",
     "telefono": "3142994940"
@@ -10,7 +20,17 @@
 {
     "tipo_usuario": "admin",
     "name": "Federico Rudiero",
-    "vehiculo": "N/A",
+    "vehiculo": [
+        {
+        "marca": "BMW",
+        "modelo": "X6",
+        "date": "2018-03-30T09:00:00.594Z"
+        },
+        {
+        "marca": "Fiat",
+        "modelo": "Uno",
+        "date": "2015-07-15T09:00:00.594Z"
+        }],
     "email": "federicorudiero@mail.com",
     "password": "admin123",
     "telefono": "93518120950"

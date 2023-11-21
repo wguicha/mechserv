@@ -1,6 +1,6 @@
 const servicesData = require('../../serviceList.json')
 const userMockList = require('../../userMockList.json')
-const { Servicio, User } = require('../db')
+const { Servicio, User, Vehiculo } = require('../db')
 
 async function uploadData () {
     try{
@@ -14,14 +14,19 @@ async function uploadData () {
         })
 
         userMockList.map((user) => {
-            User.create({
-                tipo_usuario: user.tipo_usuario,
-                name: user.name,
-                vehiculo: user.vehiculo,
-                email: user.email,
-                password: user.password,
-                telefono: user.telefono
-            })
+            console.log("Vehiculo:", user.vehiculo)
+            User.findOrCreate({
+                where: {email : user.email},
+                defaults: {
+                    tipo_usuario: user.tipo_usuario,
+                    name: user.name,
+                    vehiculos: user.vehiculo,
+                    password: user.password,
+                    telefono: user.telefono
+                },
+                include: [ Vehiculo ]
+                },
+            );
         })
 
     } catch (err) {

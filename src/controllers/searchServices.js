@@ -1,41 +1,46 @@
-const dummyData = require('../../serviceList.json')
-const getServices = require('../controllers/getServices');
+const { Servicio } = require('../db')
+const { Op } = require("sequelize");
 
 const searchServices = async  (req, res) => {
     try{
-        console.log("Services db:", getServices())
-        const { orderBy, orderType, keyWord } = req.query;
-        let filterServ = [];
+        let filteredServices = []
+        const category = req.query.category;
+        const keyWord = req.query.keyWord;
 
-        if(!orderBy && !orderType && !keyWord){
-            console.log("Caso 1")
-            res.status(200).json(dummyData);
-            return
-        }
-
-        if(keyWord){
-            console.log("Filtrado")
-            filterServ = dummyData.filter((serv) =>{
-                return serv.name.toLowerCase().includes(keyWord.toLowerCase())
+        if( keyWord && category) {
+            filteredServices = await Servicio.findAll({
+                where : {
+                    [Op.and]: [
+                        {categoria: category},
+                        {[Op.or]:[{description : {[Op.like] : `%${keyWord}%`} },
+                                 {name : {[Op.like] : `%${keyWord}%`} }
+                                ]}
+                    ]
+                }
             })
+            return res.status(200).json(filteredServices)
         }
 
-        if(orderBy && keyWord){
-            console.log("Caso 2")
-            res.status(200).json(sortServ(orderBy, orderType, filterServ))
-            return
+        if( !keyWord && category) {
+
+            filteredServices = await Servicio.findAll({
+                where : {
+                    categoria: category
+                }
+            })
+            return res.status(200).json(filteredServices)
         }
 
-        if(orderBy){
-            console.log("Caso 3")
-            console.log("Services db 2:", getServices())
-            res.status(200).json(sortServ(orderBy, orderType, dummyData))
-            return
-        }else{
-            console.log("Caso 4")
-            res.status(200).json(dummyData);
-            return
+        if( keyWord && !category) {
+
+            filteredServices = await Servicio.findAll({
+                where : {[Op.or]:[{description : {[Op.like] : `%${keyWord}%`} },
+                {name : {[Op.like] : `%${keyWord}%`} }
+               ]}
+            })
+            return res.status(200).json(filteredServices)
         }
+
 
     } catch (err) {
         console.log(err)

@@ -14,7 +14,7 @@ async function uploadData () {
         })
 
         userMockList.map((user) => {
-            console.log("Vehiculo:", user.vehiculo)
+
             User.findOrCreate({
                 where: {email : user.email},
                 defaults: {

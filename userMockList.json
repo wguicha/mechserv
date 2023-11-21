@@ -1,0 +1,18 @@
+﻿[
+{
+    "tipo_usuario": "client",
+    "name": "William Guicha",
+    "vehiculo": "N/A",
+    "email": "williamalberto1@hotmail.com",
+    "password": "client123",
+    "telefono": "3142994940"
+},
+{
+    "tipo_usuario": "admin",
+    "name": "Federico Rudiero",
+    "vehiculo": "N/A",
+    "email": "federicorudiero@mail.com",
+    "password": "admin123",
+    "telefono": "93518120950"
+}
+]

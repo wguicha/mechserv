@@ -2,11 +2,7 @@ const { Servicio } = require('../db');
 
 async function getServices (req, res) {
     try{
-        console.log("PASO 1")
-
         const services = await Servicio.findAll();
-
-        console.log("PASO 2", services)
 
         res.status(200).json(services);
 

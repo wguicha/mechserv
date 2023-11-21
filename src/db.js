@@ -7,11 +7,11 @@ const {
 } = process.env;
 
 //Connect to local db:
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dbmechserv`, {
+//const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dbmechserv`, {
 //Internal connection inside Render.com:
 //const sequelize = new Sequelize(`${DB_URL_INT}`, {
 //External connection to Render.com db. Failed:
-//const sequelize = new Sequelize(`${DB_URL_EXT}`, {
+const sequelize = new Sequelize(`${DB_URL_EXT}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });

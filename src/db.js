@@ -7,7 +7,7 @@ const {
 } = process.env;
 
 //Connect to local db:
-//const sequelize = new Sequelize(`postgres://dbmechserv_user:c3USLj84hIVi3uuDUsZtDQ6EJqIHmVPg@dpg-cl9soa1arfss73d8mtj0-a.oregon-postgres.render.com:5432/dbmechserv`, {
+//const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dbmechserv`, {
 //Internal connection inside Render.com:
 //const sequelize = new Sequelize(`${DB_URL_INT}`, {
 //External connection to Render.com db. Failed:

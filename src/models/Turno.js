@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
     },
+    dia: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     mañana: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,8 +19,8 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-/*    
-    id_servicio: { 
+/*
+    id_servicio: {
       type: DataTypes.UUID,
       allowNull: false,
       references: {

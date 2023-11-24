@@ -16,6 +16,8 @@ const getAllUsers = async (req, res) => {
             email: user.email,
             telefono: user.telefono,
             imagen: user.imagen,
+            password:user.password,
+            
         }));
 
         return res.status(200).json({ users: formattedUsers });

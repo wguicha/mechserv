@@ -39,7 +39,7 @@ const postUser = async (req, res) => {
             const token = jwt.sign(
                 { userId: newUser.uuid, email: newUser.email },
                 TOKEN_KEY,
-                { expiresIn: '2h' }
+                { expiresIn: '5h' }
             );
 
             return res.status(201).json({

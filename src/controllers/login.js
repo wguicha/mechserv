@@ -29,6 +29,7 @@ const login = async (req, res) => {
                     id:found.uuid,
                     name: found.name,
                     email: found.email,
+                    password:found.password
                     
                 },
                 token: 'token'

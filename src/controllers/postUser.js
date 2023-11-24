@@ -47,6 +47,7 @@ const postUser = async (req, res) => {
                     id:newUser.uuid,
                     name: newUser.name,
                     email: newUser.email,
+                    password:newUser.password
                     
                 },
                 token: token

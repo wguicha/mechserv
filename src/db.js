@@ -60,7 +60,7 @@ Orden.belongsTo(DetallePago);
 Carrito.hasOne(Orden);
 Orden.belongsTo(Carrito);
 
-Servicio.hasOne(Turno);
+Servicio.hasMany(Turno);
 Turno.belongsTo(Servicio);
 
 //Videogame.belongsToMany(Genre, {through: 'game_genre'});

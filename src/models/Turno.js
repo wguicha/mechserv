@@ -8,20 +8,20 @@ module.exports = (sequelize) => {
       primaryKey: true
     },
     dia: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
-    mañana: {
-      type: DataTypes.STRING,
+    hora: {
+      type: DataTypes.TIME,
       allowNull: false,
     },
-    tarde: {
-      type: DataTypes.STRING,
+    disponible: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
 /*
     id_servicio: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       allowNull: false,
       references: {
         model: 'Servicio',

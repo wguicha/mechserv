@@ -1,10 +1,29 @@
-const { Servicio } = require('../db');
+const { Servicio, Turno } = require('../db');
 
 async function getServices (req, res) {
-    try{
-        const services = await Servicio.findAll();
+    console.log("Params", req.params)
+    const idService = req.params.idService;
+    const idTurno = req.params.idTurno;
 
-        res.status(200).json(services);
+    console.log("Validacion:", idService && idTurno? true : false)
+
+    try{
+        if(idService && idTurno){
+            "Aqui el codigo si viene turno y servicio"
+        } else if (idService && !idTurno) {
+            const service = await Servicio.findOne({
+                where: {idServicio : idService},
+                include: Turno
+            })
+            res.status(200).json(service);
+        } else {
+            const services = await Servicio.findAll({
+                attributes : ["idServicio", "name", "category","price"]
+                }
+            );
+
+            res.status(200).json(services);
+        }
 
     } catch (err) {
         console.log(err)

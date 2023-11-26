@@ -17,7 +17,7 @@ const searchServices = async  (req, res) => {
             filteredServices = await Servicio.findAll({
                 where : {
                     [Op.and]: [
-                        {categoria: category[0].toUpperCase() + category.slice(1)},
+                        {category: category[0].toUpperCase() + category.slice(1)},
                         {[Op.or]:[{description : {[Op.iLike] : `%${keyWord}%`} },
                                  {name : {[Op.like] : `%${keyWord}%`} }
                                 ]}
@@ -30,7 +30,7 @@ const searchServices = async  (req, res) => {
 
             filteredServices = await Servicio.findAll({
                 where : {
-                    categoria: category[0].toUpperCase() + category.slice(1)
+                    category: category[0].toUpperCase() + category.slice(1)
                 },
                 order: [[ orderBy , orderType ]]
             })

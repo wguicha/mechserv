@@ -15,6 +15,8 @@ router.post('/users',  postUser);
 router.post('/login', login);
 router.get('/categories', getCategories);
 router.get('/services', getServices);
+router.get('/services/:idService', getServices);
+//router.get('/services/turno/:idTurno', getServices);
 router.get('/services/search/', searchServices);
 
 

@@ -30,6 +30,11 @@ module.exports = (sequelize) => {
     imagen: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    token: {
+      type: DataTypes.STRING,
+     
     }
+
   });
 };

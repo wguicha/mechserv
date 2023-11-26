@@ -1,19 +1,13 @@
 const { User } = require('../db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const TOKEN_KEY = "x4TvnErxRETbVcqaL15dqMI115eNlp5y";
 
-const verifyToken = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
-    if (token == null)
-        return res.status(401).send("Token requerido");
-    jwt.verify(token, TOKEN_KEY, (err, user) => {
-        if (err) return res.status(403).send("Token invalido");
-        req.user = user;
-        next();
-    });
-}
+const {
+    TOKEN_KEY
+  } = process.env;
+
+
+
 
 const postUser = async (req, res) => {
     console.log(req.body)
@@ -34,23 +28,24 @@ const postUser = async (req, res) => {
                
                 telefono:telefono,
                 imagen: imagen
+
             });
 
             const token = jwt.sign(
                 { userId: newUser.uuid, email: newUser.email },
                 TOKEN_KEY,
-                { expiresIn: '5h' }
+                { expiresIn: '2h' }
             );
-
+            newUser.token=token;
             return res.status(201).json({
                 newUser: {
                     id:newUser.uuid,
                     name: newUser.name,
                     email: newUser.email,
-                    password:newUser.password
-                    
+                    password:newUser.password,
+                    token: newUser.token
                 },
-                token: token
+                
             });
 
         } else {
@@ -61,4 +56,4 @@ const postUser = async (req, res) => {
     }
 }
 
-module.exports = { postUser, verifyToken };
+module.exports = { postUser };

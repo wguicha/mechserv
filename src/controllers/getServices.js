@@ -1,15 +1,12 @@
 const { Servicio, Turno } = require('../db');
 
 async function getServices (req, res) {
-    console.log("Params", req.params)
     const idService = req.params.idService;
     const idTurno = req.params.idTurno;
 
-    console.log("Validacion:", idService && idTurno? true : false)
-
     try{
         if(idService && idTurno){
-            "Aqui el codigo si viene turno y servicio"
+            //"Aqui el codigo si viene turno y servicio"
         } else if (idService && !idTurno) {
             const service = await Servicio.findOne({
                 where: {idServicio : idService},

@@ -6,7 +6,8 @@ const getServices = require('../controllers/getServices');
 const getCategories = require('../controllers/getCategories');
 const searchServices = require('../controllers/searchServices');
 const Home = require('../controllers/Home')
-const auth =require('../middleware/middleware')
+const auth =require('../middleware/middleware');
+const setTurno = require('../controllers/setTurno');
 
 const router = Router();
 router.get('/users', getUsers);
@@ -15,9 +16,8 @@ router.post('/users',  postUser);
 router.post('/login', login);
 router.get('/categories', getCategories);
 router.get('/services', getServices);
-router.get('/services/:idService', getServices);
-//router.get('/services/turno/:idTurno', getServices);
 router.get('/services/search/', searchServices);
-
+router.get('/services/:idService', getServices);
+router.get('/turno/:idTurno', setTurno);
 
 module.exports = router;

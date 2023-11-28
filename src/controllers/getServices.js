@@ -1,3 +1,4 @@
+const { Sequelize } = require('sequelize');
 const { Servicio, Turno } = require('../db');
 
 async function getServices (req, res) {
@@ -10,7 +11,8 @@ async function getServices (req, res) {
         } else if (idService && !idTurno) {
             const service = await Servicio.findOne({
                 where: {idServicio : idService},
-                include: Turno
+                include: Turno,
+                order: [[ Turno, 'dia', 'ASC'],[ Turno, 'hora', 'ASC']]
             })
             res.status(200).json(service);
         } else {

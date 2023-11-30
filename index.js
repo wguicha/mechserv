@@ -6,7 +6,6 @@ const uploadData = require('./src/controllers/uploadData.js');
 
 conn.sync({ force: false}).then(() => {
 
-
   server.listen(3001, () => {
 //Creacion de datos de servicios mientras se finaliza el desarrollo
 uploadData();

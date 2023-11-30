@@ -1,4 +1,3 @@
-const { Sequelize } = require('sequelize');
 const { Servicio, Turno } = require('../db');
 
 async function getServices (req, res) {

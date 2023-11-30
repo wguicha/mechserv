@@ -7,10 +7,8 @@ const {loginUser , postUser} =require('../controllers/loginUser')
 const getServices = require('../controllers/getServices');
 const getCategories = require('../controllers/getCategories');
 const searchServices = require('../controllers/searchServices');
-
-
-
-
+const Home = require('../controllers/Home')
+const auth =require('../middleware/middleware');
 const setTurno = require('../controllers/setTurno');
 const getVehiculos = require('../controllers/getVehiculos');
 const postVehiculos = require('../controllers/postVehiculos');

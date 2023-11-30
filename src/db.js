@@ -39,29 +39,43 @@ sequelize.models = Object.fromEntries(capsEntries);
 const { User, Carrito, DetalleCarrito, Vehiculo, Turno, DetallePago, Orden, Servicio } = sequelize.models;
 
 // Aca vendrian las relaciones
+/*
 User.hasOne(Carrito);
 Carrito.belongsTo(User);
 
 Carrito.hasMany(DetalleCarrito);
 DetalleCarrito.belongsTo(Carrito);
-
+*/
 User.hasMany(Vehiculo);
 Vehiculo.belongsTo(User);
-
+/*
 DetalleCarrito.hasOne(Vehiculo);
 Vehiculo.belongsTo(DetalleCarrito);
 
 DetalleCarrito.hasOne(Turno);
 Turno.belongsTo(DetalleCarrito);
-
+*/
 DetallePago.hasOne(Orden);
 Orden.belongsTo(DetallePago);
-
+/*
 Carrito.hasOne(Orden);
 Orden.belongsTo(Carrito);
+*/
 
 Servicio.hasMany(Turno);
 Turno.belongsTo(Servicio);
+
+User.hasMany(Orden);
+Orden.belongsTo(User);
+
+Vehiculo.hasMany(Orden);
+Orden.belongsTo(Vehiculo);
+
+Servicio.hasMany(Orden);
+Orden.belongsTo(Servicio);
+
+Turno.hasOne(Orden);
+Orden.belongsTo(Turno);
 
 //Videogame.belongsToMany(Genre, {through: 'game_genre'});
 //Genre.belongsToMany(Videogame, {through: 'game_genre'});

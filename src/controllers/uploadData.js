@@ -26,13 +26,10 @@ async function uploadData () {
                 defaults: {
                     tipo_usuario: user.tipo_usuario,
                     name: user.name,
-                    vehiculos: user.vehiculo,
                     password: user.password,
                     telefono: user.telefono
                 },
-                include: [ Vehiculo ]
-                },
-            );
+            });
         })
 
         await Promise.all(userToCreate);
@@ -65,7 +62,8 @@ async function uploadData () {
             console.log('servicio not found');
           }
 =====================================================================
-        //Crear turnos para todos los servicios
+
+//Crear turnos para todos los servicios
         const serviciosToUse = await Servicio.findAll();
         let appointmentToCreate = []
 

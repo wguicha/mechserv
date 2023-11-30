@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
 
 module.exports = (sequelize) => {
   sequelize.define('Orden', {
@@ -7,6 +7,16 @@ module.exports = (sequelize) => {
         defaultValue: DataTypes.UUIDV1,
         primaryKey: true
       },
+    payment: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW
+    },
 /*
       id_carrito: {
         type: DataTypes.UUID,
@@ -16,11 +26,6 @@ module.exports = (sequelize) => {
             key: 'id_carrito',
           }
       },
-*/      
-      date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      },
-    
+*/
   });
 };

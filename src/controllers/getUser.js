@@ -1,4 +1,4 @@
-const { User } = require('../db');
+const { User, Vehiculo } = require('../db');
 
 const getUser = async (req, res) => {
 
@@ -6,8 +6,9 @@ const getUser = async (req, res) => {
         const {userId} = req.params
         const user = await User.findOne({
             where: {
-              uuid: userId, 
+              uuid: userId,
             },
+            include: [ Vehiculo ]
           });
       
        

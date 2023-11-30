@@ -36,7 +36,7 @@ async function uploadData () {
         })
 
         await Promise.all(userToCreate);
-
+/*
         //Crear turnos desde archivo JSON para un servicio en especifico
         const servicioToUse = await Servicio.findOne({
             where: { name: 'Cambio Pastillas Delanteras'}
@@ -64,16 +64,32 @@ async function uploadData () {
           } else {
             console.log('servicio not found');
           }
+=====================================================================
+        //Crear turnos para todos los servicios
+        const serviciosToUse = await Servicio.findAll();
+        let appointmentToCreate = []
 
-          //Traer los turnos asociados a un servicio
+        serviciosToUse.map((servicio)=>{
+            appointmentToCreate = appointments.map((appointment) => {
+                return Turno.findOrCreate({
+                    where: {[Op.and] : [
+                        {ServicioIdServicio:servicio.idServicio},
+                        {dia: appointment.dia},
+                        {hora: appointment.hora}
+                    ]},
+                    defaults :{
+                        ServicioIdServicio:servicio.idServicio,
+                        dia: appointment.dia,
+                        hora: appointment.hora,
+                        disponible: appointment.disponible
+                    }
+                });
+            })
 
-          const serviciosTurnos = await Servicio.findOne({
-            where:{ idServicio:servicioToUse.idServicio },
-            include: Turno
-          })
+        })
 
-          console.log("Servicio con turnos:", serviciosTurnos.Turnos.length)
-
+        await Promise.all(appointmentToCreate);
+*/
         } catch (err) {
             console.log(err)
         //return res.status(500).json({message: err.message})

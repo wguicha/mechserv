@@ -1,8 +1,10 @@
-const { User } = require('../db');
+const { User, Vehiculo } = require('../db');
 
 const getAllUsers = async (req, res) => {
     try {
-        const users = await User.findAll();
+        const users = await User.findAll({
+            include: [ Vehiculo ]
+        });
 
         if (!users || users.length === 0) {
             return res.status(404).json({ message: 'No se encontraron usuarios' });
@@ -12,12 +14,11 @@ const getAllUsers = async (req, res) => {
             id: user.uuid,
             tipo_usuario: user.tipo_usuario,
             name: user.name,
-            vehiculo: user.vehiculo,
+            vehiculo: user.Vehiculos,
             email: user.email,
             telefono: user.telefono,
             imagen: user.imagen,
-            password:user.password,
-            
+            password:user.password
         }));
 
         return res.status(200).json({ users: formattedUsers });

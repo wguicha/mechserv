@@ -1,4 +1,6 @@
-const { User, Vehiculo } = require('../db');
+
+const { User , Vehiculos } = require('../db');
+
 
 const getUser = async (req, res) => {
 
@@ -8,7 +10,10 @@ const getUser = async (req, res) => {
             where: {
               uuid: userId,
             },
-            include: [ Vehiculo ]
+
+            include: [Vehiculos],
+
+
           });
       
        

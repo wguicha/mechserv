@@ -65,7 +65,7 @@ async function loginUser(req, res) {
         client_id: AUTH0_CLIENT_ID,
         client_secret: AUTH0_CLIENT_SECRET,
         code,
-        redirect_uri: 'http://localhost:3000/callback',
+        redirect_uri: 'http://localhost:3000',
       });
       if (auth0TokenResponse.status !== 200) {
         throw new Error('Error al intercambiar código por token de acceso');

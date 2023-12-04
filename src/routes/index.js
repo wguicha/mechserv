@@ -4,7 +4,7 @@ const { Router } = require('express');
 const getUsers = require('../controllers/getUsers');
 const getUser = require('../controllers/getUser')
 const getUserByEmail = require('../controllers/getUserByEmail')
-const {loginUser , postUser} =require('../controllers/loginUser')
+const postUser =require('../controllers/postUser')
 const getServices = require('../controllers/getServices');
 const getCategories = require('../controllers/getCategories');
 const searchServices = require('../controllers/searchServices');
@@ -21,10 +21,12 @@ const router = Router();
 router.get('/users/', getUserByEmail);
 router.get('/users/:userId', getUser);
 router.get('/users', getUsers);
+
+
 router.post('/users',  postUser);
 
 router.get('/home', auth ,Home )
-router.post('/login', loginUser);
+
 
 router.get('/categories', getCategories);
 

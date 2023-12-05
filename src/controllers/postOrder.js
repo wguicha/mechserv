@@ -15,7 +15,7 @@ async function postOrder(req, res) {
 
     console.log('La orden fue cargada:', order);
 
-    return res.status(200).json({ message: 'Vehículo cargado correctamente' });
+    return res.status(200).json({ message: 'Orden creada correcta correctamente' });
   } catch (error) {
     console.error('Error al cargar el vehículo:', error);
     return res.status(500).json({ message: 'Error al cargar el vehículo' });

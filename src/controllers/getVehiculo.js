@@ -10,7 +10,7 @@ const getVehiculoUser = async (req, res) => {
       include: [
         {
           model: Vehiculo,
-          attributes: ['marca', 'modelo', 'date'],
+          attributes: ['id_vehiculo', 'marca', 'modelo', 'date'],
         },
       ],
     });
@@ -21,6 +21,7 @@ const getVehiculoUser = async (req, res) => {
 
     const vehiculos = user.Vehiculos.map((vehiculo) => {
       return {
+        id_vehiculo : vehiculo.id_vehiculo,
         marca: vehiculo.marca,
         modelo: vehiculo.modelo,
         date: vehiculo.date ? (vehiculo.date.getFullYear() + 1).toString() : '', // Convierte a cadena de texto y obtiene el año + 1

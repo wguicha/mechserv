@@ -5,17 +5,41 @@ async function getOrders (req, res) {
 
     try{
         if (idUser) {
-            const order = await Orden.findOne({
-                where: {UserUuid : idUser},
-                include: [Servicio, Turno, User, Vehiculo]
+            const order = await Orden.findAll({
+                where: {UserUuid : idUser, isActive: true},
+                attributes : ['id_orden', 'date', 'payment' ],
+                include: [{
+                    model : Servicio,
+                    attributes : ['name', 'category', 'price']
+                }, {
+                    model: Turno,
+                    attributes : ['id_turno', 'dia', 'hora']
+                }, {
+                    model: User,
+                    attributes : ['uuid']
+                 }, {
+                    model: Vehiculo,
+                    attributes : ['marca', 'modelo', 'date']
+                }]
             })
             res.status(200).json(order);
         } else {
             const orders = await Orden.findAll({
-                include: [Servicio, Turno, User, Vehiculo],
-                order: [['date', 'DESC']]
-                }
-            );
+                attributes : ['id_orden', 'date', 'payment', 'isActive' ],
+                include: [{
+                    model : Servicio,
+                    attributes : ['name', 'category', 'price']
+                }, {
+                    model: Turno,
+                    attributes : ['id_turno', 'dia', 'hora']
+                }, {
+                    model: User,
+                    attributes : ['uuid']
+                 }, {
+                    model: Vehiculo,
+                    attributes : ['marca', 'modelo', 'date']
+                }]
+            });
 
             res.status(200).json(orders);
         }

@@ -1,5 +1,6 @@
 const { Op } = require("sequelize");
-const { Orden, Servicio, Turno, Vehiculo } = require('../db');
+const { Orden, Servicio, Turno, Vehiculo, User } = require('../db');
+const sendNotification = require('../controllers/sendNotification');
 
 async function postOrder(req, res) {
   try {
@@ -22,11 +23,25 @@ async function postOrder(req, res) {
 
     await setTurno(idTurno);
 
+    const user = await User.findByPk(idUser)
+    const turno = await Turno.findByPk(idTurno)
+    const vehiculo = await Vehiculo.findByPk(idVehiculo)
+    const servicio = await Servicio.findByPk(idServicio)
+
+    const mailOptions = {
+      to: user.email,
+      subject: 'Agendamiento de Turno',
+      text: `¡Gracias por preferirnos! Su vehículo ${vehiculo.marca} - ${vehiculo.modelo} tiene una cita agendada el dia ${turno.dia.slice(0,10)} a las ${turno.hora} para su servicio de ${servicio.name}`,
+    };
+
+    sendNotification(mailOptions);
+
     console.log('La orden fue cargada:', order);
 
     return res.status(200).json({ message: 'Orden creada correcta correctamente' });
+
   } catch (error) {
-    console.error('Error al cargar el vehículo:', error);
+    console.error('Error al cargar la orden:', error);
     return res.status(500).json({ message: 'Error al crear la orden' });
   }
 }

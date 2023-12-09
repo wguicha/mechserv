@@ -6,7 +6,7 @@ async function setOrder (req, res) {
         if (idOrder) {
             const order = await Orden.findByPk(idOrder);
             await order.update({
-                isActive : false
+                isActive : !order.isActive
             })
             res.status(200).json({ message: 'La orden ha sido inactivada' });
         } else {

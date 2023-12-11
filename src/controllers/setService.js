@@ -1,12 +1,11 @@
 const { Servicio } = require('../db');
 
 async function serService (req, res) {
-    const { idServicio, name, category, price, isActive } = req.body;
+    const { idService, name, category, price, isActive } = req.body;
     try{
 
-        if (idServicio) {
-            const service = await Servicio.findByPk(idServicio);
-
+        if (idService) {
+            const service = await Servicio.findByPk(idService);
             if(service){
                 await service.update({
                     name: name,

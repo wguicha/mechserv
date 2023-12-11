@@ -15,6 +15,7 @@ const {
 const sequelize = new Sequelize(`${DB_URL_EXT}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  timezone: 'America/Argentina/Buenos_Aires'
 });
 
 const basename = path.basename(__filename);

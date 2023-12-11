@@ -12,9 +12,10 @@ const Home = require('../controllers/Home')
 const auth =require('../middleware/middleware');
 const setTurno = require('../controllers/setTurno');
 const getVehiculos = require('../controllers/getVehiculos');
-const getVehiculoUser = require('../controllers/getVehiculo');
+const getVehiculo = require('../controllers/getVehiculo');
 const postVehiculos = require('../controllers/postVehiculos');
 const postOrder = require('../controllers/postOrder');
+const setOrder = require('../controllers/setOrder');
 const getOrders = require('../controllers/getOrders');
 
 const router = Router();
@@ -23,11 +24,9 @@ router.get('/users/:email', getUserByEmail);
 router.get('/users/:userId', getUser);
 
 
-
 router.post('/users',  postUser);
 
 router.get('/home', auth ,Home )
-
 
 router.get('/categories', getCategories);
 
@@ -39,10 +38,11 @@ router.get('/turno/:idTurno', setTurno);
 
 router.get('/vehiculos', getVehiculos);
 router.post('/vehiculos', postVehiculos);
-router.get('/vehiculos/:userId', getVehiculoUser);
+router.get('/vehiculos/:userId', getVehiculo);
 
 router.post('/order', postOrder);
 router.get('/orders', getOrders);
 router.get('/orders/:idUser', getOrders);
+router.get('/orders/set/:idOrder', setOrder);
 
 module.exports = router;

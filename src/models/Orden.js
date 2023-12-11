@@ -17,6 +17,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: Sequelize.NOW
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
 /*
       id_carrito: {
         type: DataTypes.UUID,

@@ -19,9 +19,10 @@ const setOrder = require('../controllers/setOrder');
 const getOrders = require('../controllers/getOrders');
 
 const router = Router();
-router.get('/users/', getUserByEmail);
-router.get('/users/:userId', getUser);
 router.get('/users', getUsers);
+router.get('/users/:email', getUserByEmail);
+router.get('/users/:userId', getUser);
+
 
 router.post('/users',  postUser);
 

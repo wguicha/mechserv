@@ -12,13 +12,11 @@ const getAllUsers = async (req, res) => {
 
         const formattedUsers = users.map((user) => ({
             id: user.uuid,
-            tipo_usuario: user.tipo_usuario,
+           
             name: user.name,
             vehiculo: user.Vehiculos,
             email: user.email,
-            telefono: user.telefono,
-            imagen: user.imagen,
-            password:user.password
+           
         }));
 
         return res.status(200).json({ users: formattedUsers });

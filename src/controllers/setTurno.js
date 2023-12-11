@@ -13,12 +13,11 @@ const setTurno = async  (req, res) => {
                 disponible: !getTurno.disponible,
             });
 
-            console.log('Turno Actualizado:', updatedTurno.toJSON());
+            return res.status(200).json('Turno Actualizado')
         } else {
-            console.log('Turno no encontrado.');
+            return res.status(200).json('Turno no Encontrado')
         }
 
-        return res.status(200).json('Turno Actualizado')
 
     } catch (err) {
         console.log(err)

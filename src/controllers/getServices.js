@@ -14,7 +14,7 @@ async function getServices (req, res) {
                     model: Turno,
                     attributes: ['id_turno', 'dia', 'hora', 'disponible']
                   }],
-                attributes: ['idServicio', 'name','category', 'description', 'price'],
+                attributes: ['idServicio', 'name','category', 'description', 'price', 'isActive'],
                 order: [[ Turno, 'dia', 'ASC'],[ Turno, 'hora', 'ASC']]
             })
 
@@ -23,7 +23,7 @@ async function getServices (req, res) {
             res.status(200).json(serviceToSend);
         } else {
             const services = await Servicio.findAll({
-                attributes : ["idServicio", "name", "category","price"]
+                attributes : ["idServicio", "name", "category","price", "isActive"]
                 }
             );
 
@@ -48,6 +48,7 @@ const serviceToSendFunction = (service) => {
         name: service.name,
         description: service.description,
         price: service.price,
+        isActive: service.isActive,
         turnos : dates.map((date) => {
         return {
             date: date,

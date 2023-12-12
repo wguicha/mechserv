@@ -5,6 +5,7 @@ const getUser = require("../controllers/getUser");
 const getUserByEmail = require("../controllers/getUserByEmail");
 const postUser = require("../controllers/postUser");
 const getServices = require("../controllers/getServices");
+const setService = require("../controllers/setService");
 const getCategories = require("../controllers/getCategories");
 const searchServices = require("../controllers/searchServices");
 const Home = require("../controllers/Home");
@@ -14,13 +15,17 @@ const getVehiculos = require("../controllers/getVehiculos");
 const getVehiculo = require("../controllers/getVehiculo");
 const postVehiculos = require("../controllers/postVehiculos");
 const postOrder = require("../controllers/postOrder");
+const setOrder = require("../controllers/setOrder");
 const getOrders = require("../controllers/getOrders");
 const postMercadoPago = require("../controllers/postMercadoPago");
+const getReviews = require("../controllers/getReviews");
+const getReview = require("../controllers/getReview");
+const postReviews = require("../controllers/postReviews");
 
 const router = Router();
-router.get("/users/", getUserByEmail);
-router.get("/users/:userId", getUser);
 router.get("/users", getUsers);
+router.get("/users/:email", getUserByEmail);
+router.get("/users/:userId", getUser);
 
 router.post("/users", postUser);
 
@@ -31,6 +36,7 @@ router.get("/categories", getCategories);
 router.get("/services", getServices);
 router.get("/services/search/", searchServices);
 router.get("/services/:idService", getServices);
+router.post("/services/:idService", setService);
 
 router.get("/turno/:idTurno", setTurno);
 
@@ -41,6 +47,11 @@ router.get("/vehiculos/:userId", getVehiculo);
 router.post("/order", postOrder);
 router.get("/orders", getOrders);
 router.get("/orders/:idUser", getOrders);
+router.get("/orders/set/:idOrder", setOrder);
+
+router.get("/reviews", getReviews);
+router.post("/reviews", postReviews);
+router.get("/reviews/:userId", getReview);
 
 //* MERCADO PAGO
 router.post("/create_preference", postMercadoPago);

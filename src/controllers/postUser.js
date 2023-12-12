@@ -14,6 +14,14 @@ const postUser = async (req, res) => {
 
     try { 
         const { email , name } = req.body
+        if (!email || !name) {
+          return res.status(400).json({ message: 'Email and name are required fields.' });
+
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return res.status(400).json({ message: 'Invalid email format.' });
+        }
         const [user , create] = await User.findOrCreate({
             where: {
              

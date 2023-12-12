@@ -21,6 +21,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_URL_INT, DB_URL_EXT } =
 const sequelize = new Sequelize(`${DB_URL_EXT}`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  timezone: "America/Argentina/Buenos_Aires",
 });
 
 const basename = path.basename(__filename);
@@ -59,6 +60,7 @@ const {
   Orden,
   Servicio,
   UserType,
+  Review,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -101,6 +103,9 @@ Turno.hasOne(Orden);
 Orden.belongsTo(Turno);
 
 User.hasOne(UserType);
+
+User.hasMany(Review);
+Review.belongsTo(User);
 
 //Videogame.belongsToMany(Genre, {through: 'game_genre'});
 //Genre.belongsToMany(Videogame, {through: 'game_genre'});

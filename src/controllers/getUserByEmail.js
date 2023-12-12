@@ -1,4 +1,4 @@
-const { User } = require('../db');
+const { User, UserType } = require('../db');
 
 const getUserByEmail = async (req, res) => {
   try {
@@ -10,6 +10,11 @@ const getUserByEmail = async (req, res) => {
 
     const user = await User.findOne({
       where: { email: email },
+      attributes: ['uuid', 'name', 'email'],
+      include: [{
+        model: UserType,
+        attributes: ['isAdmin']
+      }],
     });
 
     if (!user) {

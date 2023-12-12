@@ -7,13 +7,14 @@ module.exports = (sequelize) => {
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
     }, 
-    typeUser: {
-      type: DataTypes.STRING,
+    isAdmin: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
+      defaultValue: false
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     }
     
     

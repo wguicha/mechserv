@@ -19,6 +19,7 @@ async function uploadData () {
         })
 
         await Promise.all(servicesCreated);
+/*        
         //Crear dos usuarios de ejemplo desde el archivo JSON
         let userToCreate = userMockList.map((user) => {
             return User.findOrCreate({
@@ -33,7 +34,7 @@ async function uploadData () {
         })
 
         await Promise.all(userToCreate);
-/*
+
         //Crear turnos desde archivo JSON para un servicio en especifico
         const servicioToUse = await Servicio.findOne({
             where: { name: 'Cambio Pastillas Delanteras'}

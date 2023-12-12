@@ -1,22 +1,21 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('UserType', {
-    uuid: {
+  sequelize.define('Review', {
+    id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV1,
       primaryKey: true
-    }, 
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
     },
-    image: {
+    contenido: {
       type: DataTypes.STRING,
-      allowNull: true,
-    }
-    
-    
-  });
+      allowNull: false,
+    },
+    puntuacion: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+}, {
+  timestamps: true,
+});
 };

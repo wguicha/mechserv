@@ -8,9 +8,12 @@ const cors = require("cors");
 const server = express();
 const mercadopago = require("mercadopago");
 
-// REPLACE WITH YOUR ACCESS TOKEN AVAILABLE IN: https://developers.mercadopago.com/panel
+//* MERCADO PAGO
+
+const { ACCESS_TOKEN } = process.env;
+
 mercadopago.configure({
-  access_token: "<ACCESS_TOKEN>",
+  access_token: ACCESS_TOKEN,
 });
 
 // MIDDLEWARE SETUP

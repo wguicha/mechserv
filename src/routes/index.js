@@ -54,6 +54,6 @@ router.post("/reviews", postReviews);
 router.get("/reviews/:userId", getReview);
 
 //* MERCADO PAGO
-router.post("/create_preference", postMercadoPago);
+router.post("/Mercado_Pago", postMercadoPago);
 
 module.exports = router;

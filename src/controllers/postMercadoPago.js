@@ -2,33 +2,27 @@
 const mercadopago = require("mercadopago");
 
 const postMercadoPago = async (req, res) => {
+  const service = req.body;
   try {
-    let preference = {
+    const preference = {
       items: [
         {
-          title: req.body.description,
-          unit_price: Number(req.body.price),
-          quantity: Number(req.body.quantity),
+          title: service.name,
+          unit_price: service.price,
+          quantity: 1,
+          currency_id: "USD",
         },
       ],
       back_urls: {
-        success: "https://mechserv-pf.onrender.com/",
-        failure: "https://mechserv-pf.onrender.com/",
-        pending: "",
+        success: "https://mechserv-pf.onrender.com/orders",
+        failure: "https://mechserv-pf.onrender.com/orders",
       },
       auto_return: "approved",
     };
 
-    mercadopago.preferences
-      .create(preference)
-      .then(function (response) {
-        res.json({
-          id: response.body.id,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const resp = await mercadopago.preferences.create(preference);
+    console.log(resp);
+    res.status(200).json(resp.response.init_point);
   } catch (error) {
     res.status(500).json({ message: error });
   }

@@ -1,4 +1,4 @@
-const { User } = require('../db');
+const { User , UserType } = require('../db');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -22,19 +22,22 @@ const postUser = async (req, res) => {
         if (!emailRegex.test(email)) {
             return res.status(400).json({ message: 'Invalid email format.' });
         }
-        const [user , create] = await User.findOrCreate({
+        const user = await User.findOrCreate({
             where: {
-             
               email :email,
               name: name
-
             },
-
           });
-      
-       
 
-        return res.status(200).json({ user });
+          console.log("User:", user[0].uuid)
+
+          const userType = await UserType.create({
+            UserUuid: user[0].uuid,
+          });
+
+          // await user.addVehiculo(userType);
+
+        return res.status(200).json({ user, userType });
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

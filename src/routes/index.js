@@ -18,6 +18,9 @@ const postVehiculos = require('../controllers/postVehiculos');
 const postOrder = require('../controllers/postOrder');
 const setOrder = require('../controllers/setOrder');
 const getOrders = require('../controllers/getOrders');
+const getReviews = require('../controllers/getReviews');
+const getReview = require('../controllers/getReview');
+const postReviews = require('../controllers/postReviews');
 
 const router = Router();
 router.get('/users', getUsers);
@@ -46,5 +49,9 @@ router.post('/order', postOrder);
 router.get('/orders', getOrders);
 router.get('/orders/:idUser', getOrders);
 router.get('/orders/set/:idOrder', setOrder);
+
+router.get('/reviews', getReviews);
+router.post('/reviews', postReviews);
+router.get('/reviews/:userId', getReview);
 
 module.exports = router;

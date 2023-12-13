@@ -8,7 +8,7 @@ async function setOrder (req, res) {
             await order.update({
                 isActive : !order.isActive
             })
-            res.status(200).json({ message: 'La orden ha sido inactivada' });
+            res.status(200).json({ message: 'La orden ha sido modificada' });
         } else {
 
             res.status(200).json({ message: 'Orden no encontrada' });

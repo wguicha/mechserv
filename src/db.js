@@ -103,6 +103,7 @@ Turno.hasOne(Orden);
 Orden.belongsTo(Turno);
 
 User.hasOne(UserType);
+UserType.belongsTo(User);
 
 User.hasMany(Review);
 Review.belongsTo(User);

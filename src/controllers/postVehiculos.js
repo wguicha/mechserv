@@ -12,25 +12,25 @@ async function postVehiculos(req, res) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
 
-    let imageUrl;
+    // let imageUrl;
 
-    // Verificar si se proporcionó una imagen en la solicitud
-    if (image) {
-      try {
-        // Cargar la imagen a Cloudinary y obtener la URL segura
-        imageUrl = await uploadImage(image);
-      } catch (error) {
-        console.error('Error al cargar la imagen:', error);
-        return res.status(500).json({ message: 'Error al cargar la imagen' });
-      }
-    }
+    // // Verificar si se proporcionó una imagen en la solicitud
+    // if (image) {
+    //   try {
+    //     // Cargar la imagen a Cloudinary y obtener la URL segura
+    //     imageUrl = await uploadImage(image);
+    //   } catch (error) {
+    //     console.error('Error al cargar la imagen:', error);
+    //     return res.status(500).json({ message: 'Error al cargar la imagen' });
+    //   }
+    // }
 
     // Crear el vehículo y asignarlo al usuario
     const vehiculo = await Vehiculo.create({
       marca: marca,
       modelo: modelo,
       date: date,
-      image: imageUrl, 
+      image: image, 
       UserUuid: users,
     });
     await user.addVehiculo(vehiculo);

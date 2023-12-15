@@ -1,15 +1,50 @@
 const servicesData = require('../../serviceList.json')
 const userMockList = require('../../userMockList.json')
 const appointments = require('../../appointments.json')
-const { Servicio, User, Vehiculo, Turno } = require('../db')
+/*
+const vehiculos = require('../../vehiculos.json')
+const ordens = require('../../ordens.json')
+*/
+const { Servicio, User, Vehiculo, Turno, Orden } = require('../db')
 const { Op } = require("sequelize");
 
 async function uploadData () {
     try{
+//CARGAR VEHICULOS
+/*
+console.log("Vehiculos:", vehiculos)
+        const vehiculoCargados = vehiculos.map((vehiculo) =>{
+            Vehiculo.create({
+                marca: vehiculo.marca,
+                modelo: vehiculo.modelo,
+                date: vehiculo.date,
+                UserUuid: vehiculo.users
+            });
+        })
+
+        await Promise.all(vehiculoCargados);
+*/
+ //CARGAR ORDENES
+/*
+        const ordenesCargadas = ordens.map((orden) =>{
+            Orden.create({
+                UserUuid: orden.idUser,
+                VehiculoIdVehiculo: orden.idVehiculo,
+                ServicioIdServicio: orden.idServicio,
+                TurnoIdTurno: orden.idTurno,
+                payment: true
+            });
+        })
+
+        await Promise.all(ordenesCargadas);
+*/
+//CARGAR SERVICIOS
         //Crear servicios desde el archivo JSON
         const dates = ['2023-12-14', '2023-12-15', '2023-12-16', '2023-12-17']
         const hours = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-/*
+
+        /*
+
         let servicesCreated = servicesData.map((servicio) => {
             return Servicio.findOrCreate({
                 where: {name: servicio.name},

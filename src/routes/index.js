@@ -50,6 +50,6 @@ router.get('/orders/set/:idOrder', setOrder);
 
 router.get('/reviews', getReviews);
 router.post('/reviews', postReviews);
-router.get('/reviews/:userId', getReview);
+router.get('/reviews/:id_orden', getReview);
 
 module.exports = router;

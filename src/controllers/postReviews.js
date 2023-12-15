@@ -1,31 +1,31 @@
-const { Review, User } = require('../db');
+const { Review, Orden } = require('../db');
 
 async function postReviews(req, res) {
   try {
-    const { contenido, puntuacion, users } = req.body;
+    const { contenido, puntuacion, id_orden } = req.body;
 
-    // Verificar si el usuario existe
-    const user = await User.findByPk(users);
+    // Verificar si la orden existe
+    const orden = await Orden.findByPk(id_orden);
     console.log(req.body)
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+    if (!orden) {
+      return res.status(404).json({ message: 'Orden No Encontrada' });
     }
 
-    // Crear la reseña y asignarlo al usuario
+    // Crear la reseña y asignarla a la orden
     const review = await Review.create({
       contenido: contenido,
       puntuacion: puntuacion,
-      Useruuid: users
+      id_orden: id_orden,//
     });
-    await user.addReview(review);
+    
 
     console.log('Reseña cargada correctamente.');
 
     return res.status(200).json({ message: 'Reseña cargada correctamente' });
   } catch (error) {
     console.error('Error al cargar la Reseña:', error);
-    return res.status(500).json({ message: 'Error al cargar la Reseña' });
+    return res.status(500).json({ message: 'Error al cargar la Reseña', error: error.message });
   }
 }
 
-module.exports =  postReviews;
+module.exports = postReviews;

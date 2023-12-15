@@ -12,7 +12,8 @@ const getAllReviews = async (req, res) => {
             id: review.id,
             contenido: review.contenido,
             puntuacion: review.puntuacion,
-            
+            id_orden: review.id_orden,
+                        
         }));
 
         return res.status(200).json({ reviews: formattedReviews });

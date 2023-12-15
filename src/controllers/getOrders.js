@@ -7,7 +7,7 @@ async function getOrders (req, res) {
         if (idUser) {
             const order = await Orden.findAll({
                 where: {UserUuid : idUser, isActive: true},
-                attributes : ['id_orden', 'date', 'payment' ],
+                attributes : ['id_orden', 'date', 'payment', 'isActive' ],
                 include: [{
                     model : Servicio,
                     attributes : ['name', 'category', 'price']

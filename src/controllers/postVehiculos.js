@@ -1,14 +1,28 @@
 const { Vehiculo, User } = require('../db');
+const { uploadImage } = require('../cloudinary/upLoadImage'); // ajusta la ruta según tu estructura de archivos
 
 async function postVehiculos(req, res) {
   try {
-    const { marca, modelo, date, users } = req.body;
+    // Obtén los datos de la solicitud, incluida la imagen si se proporciona
+    const { marca, modelo, date, users, image } = req.body;
 
     // Verificar si el usuario existe
     const user = await User.findByPk(users);
-    console.log(req.body)
     if (!user) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    let imageUrl;
+
+    // Verificar si se proporcionó una imagen en la solicitud
+    if (image) {
+      try {
+        // Cargar la imagen a Cloudinary y obtener la URL segura
+        imageUrl = await uploadImage(image);
+      } catch (error) {
+        console.error('Error al cargar la imagen:', error);
+        return res.status(500).json({ message: 'Error al cargar la imagen' });
+      }
     }
 
     // Crear el vehículo y asignarlo al usuario
@@ -16,11 +30,14 @@ async function postVehiculos(req, res) {
       marca: marca,
       modelo: modelo,
       date: date,
-      UserUuid: users
+      image: imageUrl, 
+      UserUuid: users,
     });
     await user.addVehiculo(vehiculo);
 
     console.log('Vehículo cargado correctamente.');
+    console.log('Vehículo creado:', vehiculo.toJSON());
+    console.log('Usuario asociado al vehículo:', user.toJSON());
 
     return res.status(200).json({ message: 'Vehículo cargado correctamente' });
   } catch (error) {
@@ -29,4 +46,4 @@ async function postVehiculos(req, res) {
   }
 }
 
-module.exports =  postVehiculos;
+module.exports = postVehiculos;

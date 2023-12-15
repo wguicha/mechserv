@@ -31,8 +31,10 @@ const postUser = async (req, res) => {
 
           console.log("User:", user[0].uuid)
 
-          const userType = await UserType.create({
-            UserUuid: user[0].uuid,
+          const userType = await UserType.findOrCreate({
+            where:{
+              UserUuid: user[0].uuid
+            }
           });
 
           // await user.addVehiculo(userType);

@@ -15,7 +15,7 @@ const postMercadoPago = async (req, res) => {
       ],
       back_urls: {
         success: "https://mechserv.vercel.app/reviews/",
-        failure: "https://mechserv-pf.onrender.com/",
+        failure: "https://mechserv.vercel.app/orders",
       },
       auto_return: "approved",
     };

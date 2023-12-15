@@ -15,6 +15,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    id_orden: {
+      type: DataTypes.UUID, 
+      allowNull: false,
+    }
 }, {
   timestamps: true,
 });

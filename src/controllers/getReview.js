@@ -1,37 +1,30 @@
-const { User, Review } = require('../db');
+const { Review, Orden } = require('../db');
 
-const getReviewUser = async (req, res) => {
+const getReviewOrden = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const user = await User.findOne({
+    const { id_orden } = req.params;
+
+    const review = await Review.findOne({
       where: {
-        uuid: userId,
+        id_orden: id_orden,
       },
-      include: [
-        {
-          model: Review,
-          attributes: ['id', 'contenido', 'puntuacion'],
-        },
-      ],
     });
 
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+    if (!review) {
+      return res.status(200).json({ review: [] });
     }
 
-    const reviews = user.Reviews.map((review) => {
-      return {
-        id: review.id,
-        contenido: review.contenido,
-        puntuacion: review.puntuacion,
-        
-      };
-    });
+    const formattedReview = {
+      id: review.id,
+      contenido: review.contenido,
+      puntuacion: review.puntuacion,
+      id_orden: review.id_orden,
+    };
 
-    return res.status(200).json({ reviews });
+    return res.status(200).json({ review: formattedReview });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 };
 
-module.exports = getReviewUser;
+module.exports = getReviewOrden;

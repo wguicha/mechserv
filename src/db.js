@@ -105,8 +105,8 @@ Orden.belongsTo(Turno);
 User.hasOne(UserType);
 UserType.belongsTo(User);
 
-User.hasMany(Review);
-Review.belongsTo(User);
+Orden.hasOne(Review);
+Review.belongsTo(Orden);
 
 //Videogame.belongsToMany(Genre, {through: 'game_genre'});
 //Genre.belongsToMany(Videogame, {through: 'game_genre'});

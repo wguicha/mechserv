@@ -16,7 +16,7 @@ async function postVehiculos(req, res) {
       marca: marca,
       modelo: modelo,
       date: date,
-      Useruuid: users
+      UserUuid: users
     });
     await user.addVehiculo(vehiculo);
 

@@ -4,6 +4,7 @@ const getUsers = require("../controllers/getUsers");
 const getUser = require("../controllers/getUser");
 const getUserByEmail = require("../controllers/getUserByEmail");
 const postUser = require("../controllers/postUser");
+const setUser = require("../controllers/setUser");
 const getServices = require("../controllers/getServices");
 const postService = require("../controllers/postService");
 const getCategories = require("../controllers/getCategories");
@@ -27,6 +28,7 @@ router.get("/users", getUsers);
 router.get("/users/:email", getUserByEmail);
 router.get("/users/:userId", getUser);
 router.post("/users", postUser);
+router.post("/users/:idUser", setUser);
 
 router.get("/home", auth, Home);
 
@@ -52,6 +54,7 @@ router.get("/orders/set/:idOrder", setOrder);
 router.get('/reviews', getReviews);
 router.post('/reviews', postReviews);
 router.get('/reviews/:id_orden', getReview)
+
 
 //* MERCADO PAGO
 router.post("/Mercado_Pago", postMercadoPago);

@@ -31,7 +31,7 @@ async function postVehiculos(req, res) {
       modelo: modelo,
       date: date,
       image: imageUrl, 
-      Useruuid: users,
+      UserUuid: users,
     });
     await user.addVehiculo(vehiculo);
 

@@ -1,9 +1,16 @@
-const { User, Vehiculo } = require('../db');
+const { User, Vehiculo, UserType } = require('../db');
 
 const getAllUsers = async (req, res) => {
     try {
         const users = await User.findAll({
-            include: [ Vehiculo ]
+            include: [{
+                model : Vehiculo,
+                attributes : ['marca', 'modelo', 'date']
+            },{
+                model : UserType,
+                attributes : ['isAdmin', 'isActive']
+            }
+            ]
         });
 
         if (!users || users.length === 0) {
@@ -12,10 +19,11 @@ const getAllUsers = async (req, res) => {
 
         const formattedUsers = users.map((user) => ({
             id: user.uuid,
-           
             name: user.name,
             vehiculo: user.Vehiculos,
             email: user.email,
+            isAdmin: user.UserType.isAdmin,
+            isActive: user.UserType.isActive,
            
         }));
 

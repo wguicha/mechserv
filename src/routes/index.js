@@ -49,9 +49,9 @@ router.get("/orders", getOrders);
 router.get("/orders/:idUser", getOrders);
 router.get("/orders/set/:idOrder", setOrder);
 
-router.get("/reviews", getReviews);
-router.post("/reviews", postReviews);
-router.get("/reviews/:userId", getReview);
+router.get('/reviews', getReviews);
+router.post('/reviews', postReviews);
+router.get('/reviews/:id_orden', getReview)
 
 //* MERCADO PAGO
 router.post("/Mercado_Pago", postMercadoPago);

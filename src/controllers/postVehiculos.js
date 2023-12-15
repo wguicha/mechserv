@@ -30,7 +30,7 @@ async function postVehiculos(req, res) {
       marca: marca,
       modelo: modelo,
       date: date,
-      image: imageUrl, // Asignar la URL de la imagen
+      image: imageUrl, 
       Useruuid: users,
     });
     await user.addVehiculo(vehiculo);

@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
     date: {
       type: DataTypes.DATE,
       allowNull: false,
-    }
+    },
+    image: {
+      type: DataTypes.STRING, 
+      allowNull: false,
+    },
   });
 };

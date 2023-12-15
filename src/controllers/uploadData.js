@@ -1,11 +1,13 @@
 const servicesData = require('../../serviceList.json')
 const userMockList = require('../../userMockList.json')
 const appointments = require('../../appointments.json')
+
 /*
+const types = require('../../types.json')
 const vehiculos = require('../../vehiculos.json')
 const ordens = require('../../ordens.json')
 */
-const { Servicio, User, Vehiculo, Turno, Orden } = require('../db')
+const { Servicio, User, Vehiculo, Turno, Orden, UserType } = require('../db')
 const { Op } = require("sequelize");
 
 async function uploadData () {
@@ -37,6 +39,16 @@ console.log("Vehiculos:", vehiculos)
         })
 
         await Promise.all(ordenesCargadas);
+*/
+ //CARGAR TYPES
+/*
+        const typeCarga = types.map((type) =>{
+            UserType.create({
+                UserUuid: type.uuid
+            });
+        })
+
+        await Promise.all(typeCarga);
 */
 //CARGAR SERVICIOS
         //Crear servicios desde el archivo JSON
